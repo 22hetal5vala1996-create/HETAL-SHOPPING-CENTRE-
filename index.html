@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HETAL SHOPPING CENTRE</title>
+<style>
+body{font-family:'Poppins',sans-serif;margin:0;background:#f8f9fa;color:#333}
+header{background:linear-gradient(90deg,#e91e63,#9c27b0);color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:100}
+header h1{margin:0;font-size:28px}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:500}
+.container{padding:20px;max-width:1200px;margin:auto}
+h2{text-align:center;color:#e91e63;margin:40px 0 20px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:white;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:20px;text-align:center;transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:50%;height:200px;object-fit:cover;border-radius:10px}
+.btn{background:#25D366;color:white;padding:12px 25px;border:none;border-radius:8px;text-decoration:none;display:inline-block;margin-top:10px;font-weight:bold}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.product{background:white;padding:10px;border-radius:10px;text-align:center}
+.product img{width:50%;height:220px;object-fit:cover;border-radius:8px;cursor:zoom-in}
+.price{color:#e91e63;font-weight:bold;font-size:18px}
+form{background:white;padding:20px;border-radius:10px;margin-top:20px}
+input,textarea,select{width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:6px}
+footer{background:#222;color:white;text-align:center;padding:15px;margin-top:40px}
+.modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8)}
+.modal img{margin:auto;display:block;max-width:90%;max-height:80%;margin-top:5%}
+.close{position:absolute;top:20px;right:35px;color:white;font-size:40px;cursor:pointer}
+
+#zoom {
+  background: rgba(0,0,0,0.9);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none; /* પહેલા none રહેશે */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: zoom-out;
+}
+#zoom img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px white;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HETAL SHOPPING CENTRE</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#mens">Men</a>
+    <a href="#womens">Women</a>
+    <a href="#kids">Kids</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="container" id="home">
+  <h2>Shop by Category</h2>
+  <div class="categories">
+    <div class="card">
+      <img src="D:\HTML Practice\Website_2\images\men.jpeg" alt="Men">
+      <h3>Men's Wear</h3>
+      <a href="#mens" class="btn">Shop Now</a>
+    </div>
+    <div class="card">
+      <img src="D:\HTML Practice\Website_2\images\women.jpeg" alt="Women">
+      <h3>Women's Wear</h3>
+      <a href="#womens" class="btn">Shop Now</a>
+    </div>
+    <div class="card">
+      <img src="D:\HTML Practice\Website_2\images\children.jpeg" alt="Kids">
+      <h3>Children's Wear</h3>
+      <a href="#kids" class="btn">Shop Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- MEN'S WEAR -->
+<div class="container" id="mens">
+  <h2>Men's Wear</h2>
+  <h3>Jeans | Shirts | T-Shirts | Trousers</h3>
+  <div class="products">
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\jeans.jpeg" onclick="zoom(this)">
+      <p>Blue Denim Jeans</p><p class="price">₹1299</p>
+      <button class="btn" onclick="orderWA('Blue Denim Jeans ₹1299')">Order on WhatsApp</button>
+    </div>
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\shirt.jpeg" onclick="zoom(this)">
+      <p>Formal Shirt</p><p class="price">₹899</p>
+      <button class="btn" onclick="orderWA('Formal Shirt ₹899')">Order on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- WOMEN'S WEAR -->
+<div class="container" id="womens">
+  <h2>Women's Wear</h2>
+  <h3>Dress | Choli | Saree | Dress Material</h3>
+  <div class="products">
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\saree.jpeg" onclick="zoom(this)">
+      <p>Silk Saree</p><p class="price">₹2499</p>
+      <button class="btn" onclick="orderWA('Silk Saree ₹2499')">Order on WhatsApp</button>
+    </div>
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\dress.jpeg" onclick="zoom(this)">
+      <p>Party Dress</p><p class="price">₹1799</p>
+      <button class="btn" onclick="orderWA('Party Dress ₹1799')">Order on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- KIDS WEAR -->
+<div class="container" id="kids">
+  <h2>Children's Wear</h2>
+  <h3>Boys Clothes | Girls Clothes</h3>
+  <div class="products">
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\boykid.jpeg" onclick="zoom(this)">
+      <p>Boys T-Shirt</p><p class="price">₹499</p>
+      <button class="btn" onclick="orderWA('Boys T-Shirt ₹499')">Order on WhatsApp</button>
+    </div>
+    <div class="product">
+      <img src="D:\HTML Practice\Website_2\images\girlkid.jpeg" onclick="zoom(this)">
+      <p>Girls Frock</p><p class="price">₹699</p>
+      <button class="btn" onclick="orderWA('Girls Frock ₹699')">Order on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER + ADDRESS + COD FORM -->
+<div class="container" id="order">
+  <h2>Place Order - Cash on Delivery</h2>
+  <form onsubmit="sendOrder(event)">
+    <input type="text" id="name" placeholder="તમારું નામ" required>
+    <input type="tel" id="phone" placeholder="મોબાઇલ નંબર" required>
+    <textarea id="address" placeholder="પૂરું સરનામું" rows="3" required></textarea>
+    <input type="text" id="product" placeholder="Product Name" required>
+    <select id="payment">
+      <option>Cash on Delivery</option>
+      <option>UPI</option>
+    </select>
+    <button class="btn" type="submit">Send Order to WhatsApp</button>
+  </form>
+</div>
+
+<!-- FEEDBACK FORM -->
+<div class="container" id="contact">
+  <h2>Feedback</h2>
+  <form onsubmit="sendFeedback(event)">
+    <input type="text" id="fname" placeholder="તમારું નામ" required>
+    <textarea id="fmsg" placeholder="તમારો feedback લખો" rows="3" required></textarea>
+    <button class="btn" style="background:#9c27b0" type="submit">Submit Feedback</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2026 HETAL SHOPPING CENTRE | WhatsApp: 97277 99730</p>
+</footer>
+
+<!-- ZOOM MODAL -->
+<div id="myModal" class="modal"><span class="close" onclick="closeZoom()">&times;</span><img id="imgZoom"></div>
+
+<script>
+const whatsappNumber = "919727799730"; // તમારો નંબર
+
+function orderWA(item){
+  document.getElementById('product').value = item;
+  document.getElementById('order').scrollIntoView();
+}
+
+function sendOrder(e){
+  e.preventDefault();
+  let msg = `નવો Order:\nનામ: ${name.value}\nફોન: ${phone.value}\nસરનામું: ${address.value}\nProduct: ${product.value}\nPayment: ${payment.value}`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+function sendFeedback(e){
+  e.preventDefault();
+  let msg = `Feedback:\nનામ: ${fname.value}\nMessage: ${fmsg.value}`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,'_blank');
+  alert("Thank you for feedback!");
+}
+
+function zoom(img){
+  document.getElementById('zoomImg').src = img.src;
+  document.getElementById('zoom').style.display = 'flex';
+}
+</script>
+<div id="zoom" onclick="this.style.display='none'">
+  <img id="zoomImg">
+</div>
+</body>
+</html>
